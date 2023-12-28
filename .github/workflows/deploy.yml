@@ -39,7 +39,7 @@ jobs:
         cd .deploy_git
 
         # 设置 Git 用户身份验证，使用 Secrets.ACCESS_TOKEN
-        git config user.password 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
+        git config user.password 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
         
         git add -A
         git commit -m "Deployed by GitHub Actions"
