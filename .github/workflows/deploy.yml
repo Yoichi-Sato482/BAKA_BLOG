@@ -1,64 +1,18 @@
-name: Hexo Deploy
-on:
-  push:
-    branches:
-      - main
-
+name: Build and Deploy
+on: [push]
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
-      
-    - name: Update Git
-      run: sudo apt-get update && sudo apt-get install -y git
-      
-    - name: Install libcrypto
-      run: sudo apt-get install -y libssl-dev
-
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
+    - name: Checkout
+      uses: actions/checkout@master
       with:
-        node-version: '20'
-        check-latest: true
+        submodules: true
 
-    - name: Install Dependencies
-      run: |
-        npm install
-
-    - name: Hexo Clean and Generate
-      run: |
-        npx hexo clean
-        npx hexo generate
-
-    - name: Deploy to GitHub Pages
-      run: |
-        git config --global user.name "Yoichi-Sato482"
-        git config --global user.email "yoichisato2022@outlook.com"
-    - name: Set up SSH
-      run: |
-        mkdir -p ~/.ssh
-        echo "$HEXO_DEPLOY_KEY" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan github.com >> ~/.ssh/known_hosts
-        ssh -vT git@github.com
-
-        # 配置 SSH 密钥
-        mkdir -p ~/.ssh
-        echo "$HEXO_DEPLOY_KEY" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-
-        # 添加 GitHub 的主机到 known_hosts 文件
-        echo "$HEXO_DEPLOY_PUB" >> ~/.ssh/known_hosts
-
-        # 克隆并推送到 main 分支
-        git clone git@github.com:Yoichi-Sato482/yoichi-sato482.github.io.git .deploy_git
-        cp -r public/* .deploy_git
-        cd .deploy_git
-
-        git add -A
-        git commit -m "Deployed by GitHub Actions"
-        git push origin main
-
+    - name: Build and Deploy
+      uses: solybum/hexo-deploy@master
+      env:
+        PERSONAL_TOKEN: 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
+        PUBLISH_REPOSITORY: Yoichi-Sato482/yoichi-sato482.github.io # The repository the action should deploy to.
+        BRANCH: main  # The branch the action should deploy to.
+        PUBLISH_DIR: ./public # The folder the action should deploy.
