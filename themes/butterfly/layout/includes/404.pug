@@ -1,0 +1,12 @@
+- var top_img_404 = theme.error_404.background || theme.default_top_img
+
+#body-wrap.error404
+  include ./header/index.pug
+
+  #error-wrap
+    .error-content
+      .error-img
+        img(src=url_for("https://p0.meituan.net/csc/1a4428d813c7438540986070925d012b809246.png") alt='Page not found')
+      .error-info
+        h1.error_title= '404'
+        .error_subtitle= theme.error_404.subtitle || _p('error404')

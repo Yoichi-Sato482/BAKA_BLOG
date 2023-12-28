@@ -1,0 +1,5 @@
+- class_name: 喵喵貓糧贊助商
+  reward_list:
+    - name: 自己
+      amount: 9999999999999
+      datatime: 2022-11-08

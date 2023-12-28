@@ -1,0 +1,27 @@
+- group: 可愛的貓貓還有朋友(按照添加顺序排列)
+  descriptioniption: 認識到的一些可愛的朋友和貓貓
+  items:
+    - title: 湛藍的調色板
+      url: https://nekoq.eu.org/
+      avatar: https://nekoq.eu.org/static/images/avatar.png
+      description: 青く滲む 青く滲む 綺麗に / 浅渗湛蓝 纵使青涩 难掩绮丽
+    - title: Fika
+      url: https://fika.ink/#
+      avatar: https://pic.imgdb.cn/item/637c14ee16f2c2beb161a26e.jpg
+      description: Debug the World 
+    - title: SayoLab
+      url: https://sayolab.tokyo:1500/
+      avatar: https://sayolab.tokyo:1500/sayolab/wp-content/uploads/2021/11/86149135_p0-e1636691332591.jpg
+      description: 欲得之物甚多，却终不可得之。
+    - title: 伊緻幻の主页
+      url: https://www.chwin.asia
+      avatar: https://b.chwin.asia/wp-content/uploads/2022/11/cropped-lab.magiconch.com90s-time-machine-1667800846069.jpg
+      description: Take my hands.
+    - title: 捞人的小站
+      url: https://zwh.moe/
+      avatar: https://fastly.jsdelivr.net/gh/wuhang2003/images@main/avatar.jpg
+      description: 一起来玩吧~
+    - title: XYenon's Blog
+      url: https://blog.xyenon.bid/
+      avatar: https://pleroma-files.xyenon.download/a87644cfaec3e8a42dc01784c2dfd916d02a204b42c2e1a343a1d7f48919ee84.jpg
+      description: PER ASPERA AD ASTRA

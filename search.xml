@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>落落格的第一篇文章</title>
+    <url>/TheFirstPosts/</url>
+    <content><![CDATA[<h1 id="唬爛！不知道多少次寫文了"><a href="#唬爛！不知道多少次寫文了" class="headerlink" title="唬爛！不知道多少次寫文了"></a>唬爛！不知道多少次寫文了</h1><p>好久沒有寫文了，記得上次寫文還是在昨天<br>但是！<del>速度與激情9</del> 還是不知道些什麼…<br>就是要耍廢！好耶~~</p>
+<h2 id="測試"><a href="#測試" class="headerlink" title="測試"></a>測試</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;唬爛！耶！！！！&quot;</span>)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>唬爛</tag>
+        <tag>Hexo</tag>
+        <tag>落落格文章</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Rimworld遊戲基礎不完全指北</title>
+    <url>/rimworld-tutorial/</url>
+    <content><![CDATA[<h1 id="RimWorld-不完全基礎指北"><a href="#RimWorld-不完全基礎指北" class="headerlink" title="RimWorld 不完全基礎指北"></a>RimWorld 不完全基礎指北</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>首先，對於 <code>RimWorld</code> 網路上面有很多教程包括巴哈什麽的，本篇教程僅僅是自己根據游玩的經驗和藉鑒相關的教程總結出來的，所以，對剛接觸 <code>RimWorld</code> 的這款游戲的玩家比較友好。  </p>
+<p>也因爲 <code>RimWorld</code> 的自帶的翻譯令人一言難盡，對剛接觸游戲的玩家過了新手教程可能也不知道游戲的相關玩法，這篇文章能夠讓你理解這款游戲的基礎玩法。  </p>
+<p>(教程自帶目錄，不想看的地方可以直接跳過 XD)</p>
+<h2 id="基礎内容"><a href="#基礎内容" class="headerlink" title="基礎内容"></a>基礎内容</h2><p>RimWorld是一款類似廢土建造生存的2D沙盒游戲，總之經典模式就是自選3人，在這裏活下去並建立自己的殖民地（有點類似缺氧但是難度相比缺氧要友好一點）。  </p>
+<h2 id="基本玩法"><a href="#基本玩法" class="headerlink" title="基本玩法"></a>基本玩法</h2><p>如果你看不懂 ENGLISH 建議先將語言修改爲 中文，游戲選單右下角就是修改語言的地方。<br><img src="/imgs/posts/Menu.png" title="修改語言" alt="loading-ag-204" data-align="center"></p>
+<h3 id="創建殖民地"><a href="#創建殖民地" class="headerlink" title="創建殖民地"></a>創建殖民地</h3><p>這裏不需要過多描述你也可以知道點擊哪個按鈕創建殖民地，當然也可以先看一遍游戲教學。</p>
+<p>在創建殖民地的時候建議選擇 <code>墜落</code> 脚本，也可以自己創建專屬於自己的脚本進行游玩，教程以 <code>墜落</code> 脚本爲基礎。</p>
+<p><font size=2 color=#0176D8>實際上Stream創意工坊的自定義脚本才好玩</font></p>
+<p><img src="/imgs/posts/Choose.png"></p>
+<p>對於 <code>AI故事敘述者</code> 更像是整個殖民地（游戲）的大難度，這裏直接截取Wikipedia上面的解釋。</p>
+<blockquote>
+<ul>
+<li><p>“经典”卡桑德拉，借由逐渐增加负面事件，平顺地增加游戏的难度。</p>
+</li>
+<li><p>“友善”菲比，在每一个负面事件之间，有很长时间的和平，但是如果调高难度的话，仍然对玩家很有挑战性。</p>
+</li>
+<li><p>“随兴”兰迪，在随机间隔的游戏期间，提供无法预期的事件。负面事件发生的频率和规模是随机产生，并且可能发生在任何时间。</p>
+</li>
+</ul>
+</blockquote>
+<p><img src="/imgs/posts/Difficult.png"></p>
+<p>因爲是教程，所以以 <code>經典卡桑德拉 的 簡單 難度</code>（對於剛剛接觸這款游戲的也是推薦選擇這種難度），簡單難度會出現少量的襲擊事件，如果防禦措施做的合理，也不會出現很大的損失。但是下面的一定要選擇 <code>自由讀檔模式</code> ，無悔模式也就是極限模式，無法存檔無法讀檔。</p>
+<h3 id="創建世界"><a href="#創建世界" class="headerlink" title="創建世界"></a>創建世界</h3><p><del>創建世界即創建世界</del></p>
+<p>創建世界可以讓你選擇殖民地所在的位置，以及周圍的部落，但是就算是和平模式，如果你的殖民地距離周邊的部落距離太近，就算是中立的部落也會攻擊你的殖民地。</p>
+<p>可以根據自己的需求來調整相關的參數</p>
+<ul>
+<li><p>種子：可以隨便填，會影響生成出的地形</p>
+</li>
+<li><p>生成比例：强烈建議生成比例選擇50%及以上，如果你的電腦性能比較强可以嘗試生成100%</p>
+</li>
+<li><p>整體降雨量：保持適中，過多和過少都會影響到游戲的可玩性</p>
+</li>
+<li><p>整體氣溫：保持適中，炎熱會導致過熱農作物無法生長，寒冷會導致殖民地需要隨時保持合適的溫度。</p>
+</li>
+<li><p>人口密度：不建議選擇稀少，選擇稀少會降低其他部落的商隊來到殖民地的次數</p>
+</li>
+<li><p>污染：根據自己的需求調整</p>
+</li>
+<li><p>派系：越豐富玩起來越有意思，但是也不建議完全沒有敵對部落</p>
+</li>
+</ul>
+<img src="/imgs/posts/World.png" title="" alt="" data-align="center">
+
+<h3 id="降落點的選擇"><a href="#降落點的選擇" class="headerlink" title="降落點的選擇"></a>降落點的選擇</h3><p>游戲整體的發展進度完全靠你所選擇的降落點。</p>
+<img title="" src="/imgs/posts/Landed.png" alt="" data-align="center">
+
+<p>降落點的選擇推薦下面的屬性：</p>
+<blockquote>
+<p>溫帶森林</p>
+<ul>
+<li><p>地形：平原</p>
+</li>
+<li><p>移動難度：1</p>
+</li>
+<li><p>地質類型：花崗岩、大理岩、石灰岩爲主（不要選擇以板岩、砂岩爲主的地質）</p>
+</li>
+<li><p>平均溫度：全年0度以上，夏季最高溫度不要超過30度</p>
+</li>
+<li><p>植物生長季：全年</p>
+</li>
+<li><p>可覓食性：100%</p>
+</li>
+<li><p>動物放牧：是</p>
+</li>
+<li><p>Pollution（污染程度）：0</p>
+</li>
+<li><p>Nearby Pollution（附近污染程度）：越小越好最好為0.00</p>
+</li>
+<li><p>平均疾病頻率：越小越好</p>
+</li>
+<li><p>最好距離道路比較近</p>
+</li>
+</ul>
+</blockquote>
+<img title="" src="/imgs/posts/Place.png" alt="" data-align="center">
+
+<h3 id="派系"><a href="#派系" class="headerlink" title="派系"></a>派系</h3><p>在降落點選擇的時候，可以點擊下面的 <code>派系</code> 按鈕來查看各個派系的主要人種和關係，要盡量避免附近有敵對派系。中立的派系可以在之後游戲中與商隊進行交易。</p>
+<p><img src="/imgs/posts/Fuction.png"></p>
+<h3 id="理念"><a href="#理念" class="headerlink" title="理念"></a>理念</h3><p>如果沒有特別的玩法或者不想要涉獵理念和宗教系統可以選擇 <code>無理念系統</code> 或者 <code>經典理念</code> </p>
+<p>不同的理念系統會在游戲初期解鎖不同的内容</p>
+<p><img src="/imgs/posts/Idea.png"></p>
+<h3 id="創建角色"><a href="#創建角色" class="headerlink" title="創建角色"></a>創建角色</h3><p>創建角色決定了你在游戲中殖民地的發展速度和工作效率如何，最終選擇的三個角色團隊能力一定盡可能的達到平衡的狀態，并且所有角色不能有任何負面的能力（debuff）</p>
+<p>下面的能力一定要刷掉：</p>
+<blockquote>
+<ul>
+<li><p>懦弱</p>
+</li>
+<li><p>心理病態</p>
+</li>
+<li><p>嗜血狂怒</p>
+</li>
+<li><p>貪婪</p>
+</li>
+<li><p>食人族</p>
+</li>
+<li><p>縱火狂</p>
+</li>
+<li><p>迷戀藥物</p>
+</li>
+<li><p>嫉妒</p>
+</li>
+<li><p>貪吃</p>
+</li>
+<li><p>喜好藥物</p>
+</li>
+<li><p>纖纖弱質</p>
+</li>
+<li><p>仇男（女）</p>
+</li>
+<li><p>生性緊張</p>
+</li>
+<li><p>奇醜無比</p>
+</li>
+</ul>
+</blockquote>
+<p>無法執行的工作盡量不要有，有太多無法執行的工作會拖慢整體的發展速度。年齡不要在50及以上。</p>
+<p>必須包含：擅長射擊（射擊等級高）、醫療、烹飪、種植等級6級以上，同時也要包含一個建造的興趣。</p>
+<p>可以包含：格鬥、采礦、藝術、手工、高等級的社交，高等級的知識（加速研究）</p>
+<h2 id="游戲正篇"><a href="#游戲正篇" class="headerlink" title="游戲正篇"></a>游戲正篇</h2><h3 id="進入地圖"><a href="#進入地圖" class="headerlink" title="進入地圖"></a>進入地圖</h3><p>在正式進入游戲後，可以使用鍵盤的 <code>A S D W</code> 移動視角，滑鼠 <code>滾輪</code> 可以放大和縮小視角（<code>鍵盤的 PgUP和PgDown也可以實現</code>），<code>Space空白鍵</code> 可以暫停游戲時間，數字鍵 <code>1 2 3</code> 可以調整游戲進行的速度。</p>
+<p>儅逃生艙降落以後，所選擇的人物出現后，可以按空白鍵暫停進行規劃。</p>
+<h3 id="解禁物品"><a href="#解禁物品" class="headerlink" title="解禁物品"></a>解禁物品</h3><p>在游戲中的 <code>建築</code> 選單内，選擇 <code>命令</code> 可以對殖民者發佈命令，選擇 <code>解除禁用</code> 將所有的打了紅色叉叉的物品全部框起來（按住左鍵)<img src="/imgs/posts/item.png">，執行完畢之後可以按滑鼠的右鍵取消當前選擇的命令，恢復普通選擇。</p>
+<h3 id="裝備武器"><a href="#裝備武器" class="headerlink" title="裝備武器"></a>裝備武器</h3><p>降落后一定要第一時間把携帶物資裏面的武器裝備上，槍支類武器對應射擊等級高的殖民者，點擊上方顯示的殖民者，右鍵武器可以進行裝備)，衣物也是相同的方法。<img src="/imgs/posts/Weapon.png"> <img src="/imgs/posts/Defend.png"></p>
+<h3 id="計劃區域"><a href="#計劃區域" class="headerlink" title="計劃區域"></a>計劃區域</h3><p>區域規劃可以方便建造相關建築，使用 <code>建築</code> 選單，選擇 <code>命令</code> 内的 <code>計劃</code> )<img src="/imgs/posts/Plan.png"> 選項，可以對殖民地進行計劃。</p>
+<h4 id="種植區域"><a href="#種植區域" class="headerlink" title="種植區域"></a>種植區域</h4><p>種植區域一定要選擇在距離出生點 <strong>最近的沃土區域</strong> 并且範圍 <strong>至少要達到 200</strong> 在沃土上的作物生長速度最快</p>
+<p><img src="/imgs/posts/Plants.png">    <img src="/imgs/posts/Dirt.png" alt="沃土" title="沃土"></p>
+<p>可以按照下面的規劃方法進行簡單的規劃</p>
+<img src="/imgs/posts/ExamplePlants.png" title="" alt="" data-align="center">
+
+<p>規劃完成之後，在 <code>區域</code> 選項選擇 <code>種植區</code> 左鍵拖出種植區域。</p>
+<img src="/imgs/posts/Block-Plants.png" title="" alt="" data-align="center">
+
+<h4 id="冷藏庫"><a href="#冷藏庫" class="headerlink" title="冷藏庫"></a>冷藏庫</h4><p>冷藏庫可以存儲打獵的動物尸體和收割後的農作物防止腐爛，冷庫在前10天可以選擇性的建設但不能不建設。冷庫建議建設在種植區附近，如果附近有間歇泉推薦向間歇泉方向發展。</p>
+<p>如果冷藏庫建設在普通的平地上，建議設置雙層墻防止開門造成的溫度上升。</p>
+<p><img src="/imgs/posts/ExampleFridge.png"></p>
+<p>在冷藏庫規劃完成之後，需要進行區域的設置，在 <code>區域</code> 選項内選擇 <code>儲存區</code>，左鍵拖出區域設置儲存區。設置完成之後建議進行一下重新命名</p>
+<div class="note warning simple"><p><strong>注意：冷藏庫和普通的倉庫一定要進行儲存類型的設置，不設置儲存類型則無法在冷藏庫存儲動物尸體和作物，可以參考下面表格進行設置，除了表格内的物品其他物品均為不允許</strong></p>
+</div>
+
+<div class="note info simple"><p>點擊設置的區域會在左下角出現區域的信息，儲存區會有儲存按鈕在左下角顯示的信息上方，點擊即可設置。</p>
+</div>
+
+
+<table>
+<thead>
+<tr>
+<th>物品</th>
+<th>子類</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>尸體</td>
+<td><img align=left src="https://img.icons8.com/fluency/16/null/checkmark.png" /> 全部允許</td>
+</tr>
+<tr>
+<td>自然資源</td>
+<td><img align=left src="https://img.icons8.com/fluency/16/null/checkmark.png"/> 植物原料</td>
+</tr>
+<tr>
+<td>製造品</td>
+<td><img align=left src="https://img.icons8.com/fluency/16/null/checkmark.png"/> 藥品、藥物、麥汁</td>
+</tr>
+<tr>
+<td>食物</td>
+<td><img align=left src="https://img.icons8.com/fluency/16/null/checkmark.png"/> 全部允許</td>
+</tr>
+<tr>
+<td>允許大型實體</td>
+<td><img align=left src="https://img.icons8.com/fluency/16/null/checkmark.png"/> 允許</td>
+</tr>
+<tr>
+<td>允許新鮮</td>
+<td><img align=left src="https://img.icons8.com/fluency/16/null/checkmark.png"/> 允許</td>
+</tr>
+</tbody></table>
+<h4 id="倉庫"><a href="#倉庫" class="headerlink" title="倉庫"></a>倉庫</h4><p>倉庫位置可以隨意設置，但不建議設置在距離出生點太遠的地方。倉庫用來存儲不需要冷藏但放置在露天環境會老化的物品。</p>
+<p><img src="/imgs/posts/ExampleStorage.png"></p>
+<div class="note info simple"><p>根據冷藏庫相反進行設置即可，設置方法與冷藏庫相同</p>
+</div> 
+
+<h4 id="用餐區、工作區、娛樂區、厨房"><a href="#用餐區、工作區、娛樂區、厨房" class="headerlink" title="用餐區、工作區、娛樂區、厨房"></a>用餐區、工作區、娛樂區、厨房</h4><p>用餐區可以空間不需要很大，建議設置在厨房附近。</p>
+<p>工作區主要放置研究桌、石材加工台等物品用於加工和研究。</p>
+<p>娛樂區可以設置的相對大一點，如果同時有設置理念，可以將<code>儀式點、派對點、冥想點、結婚點設置在娛樂區内</code></p>
+<p>厨房一定要設置 <code>爐灶、屠宰桌、屠宰點</code> 前期可以各設置一個。</p>
+<img src="/imgs/posts/ExampleLife.png" title="" alt="" data-align="center">
+
+<h4 id="住宅區"><a href="#住宅區" class="headerlink" title="住宅區"></a>住宅區</h4><p>住宅區可以利用剩餘的空間進行合理的分配，但是每個人的房間不能太小，最少需要6格的寬度才可以。</p>
+<p><img src="/imgs/posts/ExampleALL.png">  整體佈局可以參考，當然最終還是需要考慮到出生點地形進行修改，最合適的方案是這種集成式的方案，并且也是最方便的一種方案。 </p>
+<h2 id="合理規劃和生存下去"><a href="#合理規劃和生存下去" class="headerlink" title="合理規劃和生存下去"></a>合理規劃和生存下去</h2><p>在所有區域劃分完成之後，下面就要進行工作的分配。在游戲下方選擇 <code>工作</code> 即可進行安排，一定要開啓自定優先度。</p>
+<div class="note info simple"><p>開啓自定優先度可以有更好的工作效率，參考下面的配置進行優先級設置</p>
+</div> 
+
+<p><font color=#04b905>最高優先級（1級）：消防員、病患、醫生、療養、研究員</font></p>
+<p><font color=#dbc56f>高優先級（2級）：厨師、獵人、建築工、農夫、采收者</font></p>
+<p><font color=#b29c71>普通優先級（3級）：清潔、運送員、礦工、鍛造師、工匠</font></p>
+<p><font color=#aaaaaa>低優先級（4級）：其他工作</font></p>
+<h3 id="建造規劃"><a href="#建造規劃" class="headerlink" title="建造規劃"></a>建造規劃</h3><p>前兩天一定要將住宅區建造好，同時進行封頂（規劃屋頂區），住宅區建造好之後是厨房和餐廳，餐廳可以直接建造3x3的木製大桌子，旁邊建造扶手椅。</p>
+<p>每個房間都需要添加火把，在第4~5天可以開始建造冷藏庫和發電機，同時開始研究太陽能板和蓄電池。冷藏庫如果空間在200格需要2台空調，空調藍色的朝向冷藏庫裏面，紅色的朝向外面，前期推薦風力發電機和燃木發電機結合的方式提供電力，有了蓄電池和太陽能板之後可以將火把替換成立燈。</p>
+<p>再建立一個垃圾區用來放置腐爛和變質的物品。</p>
+<h3 id="種植"><a href="#種植" class="headerlink" title="種植"></a>種植</h3><p>生存下去最重要的是食物，所以在剛降落的前幾天一定要將種植區域全部種植作物，在種植完成之後需要儘快的將種植植物換成水稻，如果出現枯萎病一定要將所有人采收者的優先級調整爲1優先進行采收，過晚采收將會傳染到整片種植區域。</p>
+<h3 id="研究"><a href="#研究" class="headerlink" title="研究"></a>研究</h3><p>研究首先要研究太陽能板和蓄電池，最好先研究蓄電池能夠存儲多餘的電力防止浪費。再進行微電子的研究，可以發展機槍塔（防禦）地熱能以及其他的娛樂設施，醫藥也是最重要的研究部分，剩餘的可以視情況進行相應的研究即可。</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>RimWorld</tag>
+        <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>落落格未來規劃</title>
+    <url>/future-planning/</url>
+    <content><![CDATA[<h2 id="其實談什麼未來規劃根本就沒有什麼規劃"><a href="#其實談什麼未來規劃根本就沒有什麼規劃" class="headerlink" title="其實談什麼未來規劃根本就沒有什麼規劃"></a>其實談什麼未來規劃根本就沒有什麼規劃</h2><p>每次想到一個想法都會開始 <del>頭腦風暴</del> 到底這個文章適不適合發到落落格上面，會不會造成一些什麼不太好的或者說…會不會踩到一部分人的地雷…非常糾結…</p>
+<h2 id="有時候是真的不想把一些不太好的東西po上來"><a href="#有時候是真的不想把一些不太好的東西po上來" class="headerlink" title="有時候是真的不想把一些不太好的東西po上來"></a>有時候是真的不想把一些不太好的東西po上來</h2><p>因爲落落格是託管在Github上面的，有爭議或者涉及建政的一些東西就不能po上來。再者本喵的文采真的沒有很好，都是寫一堆有的沒的很口語化的文章。</p>
+<h2 id="但是落落格的意義不就是把自己想到的東西記錄下來嘛"><a href="#但是落落格的意義不就是把自己想到的東西記錄下來嘛" class="headerlink" title="但是落落格的意義不就是把自己想到的東西記錄下來嘛"></a>但是落落格的意義不就是把自己想到的東西記錄下來嘛</h2><p>所以，以後想到什麼就寫什麼好了…<br>日常文章和唬爛文章會多一點</p>
+]]></content>
+      <tags>
+        <tag>唬爛</tag>
+        <tag>規劃</tag>
+      </tags>
+  </entry>
+</search>
