@@ -31,7 +31,7 @@ jobs:
       run: |
         git config --global user.name 'Yoichi-Sato482'
         git config --global user.email 'yoichisato2022@outlook.com'
-        git clone --branch=gh-pages https://github.com/Yoichi-Sato482/yoichi-sato482.github.io.git .deploy_git
+        git clone --branch=main https://github.com/Yoichi-Sato482/yoichi-sato482.github.io.git .deploy_git
         cp -r public/* .deploy_git
         cd .deploy_git
         git add -A
