@@ -8,16 +8,14 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v2
       with:
         node-version: '20'
-        check-latest: true
 
     - name: Install Dependencies
       run: |
@@ -34,12 +32,9 @@ jobs:
         git config --global user.email 'yoichisato2022@outlook.com'
 
         # 使用 Personal Access Token 进行推送
-        git clone --branch=main https://github.com/Yoichi-Sato482/yoichi-sato482.github.io.git .deploy_git
+        git clone https://${{ secrets.GH_TOKEN }}@github.com/Yoichi-Sato482/yoichi-sato482.github.io.git .deploy_git
         cp -r public/* .deploy_git
         cd .deploy_git
-
-        # 设置 Git 用户身份验证，使用 Personal Access Token
-        git config user.password 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
 
         git add -A
         git commit -m "Deployed by GitHub Actions"
