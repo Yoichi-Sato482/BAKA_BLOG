@@ -45,5 +45,5 @@ jobs:
         git commit -m "Deployed by GitHub Actions"
         
         # 使用 Secrets 中的 ACCESS_TOKEN 推送到 gh-pages 分支
-        git push https://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@github.com/Yoichi-Sato482/yoichi-sato482.github.io.git,main
+        git push https://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@github.com/Yoichi-Sato482/yoichi-sato482.github.io.git main
 
