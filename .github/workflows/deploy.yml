@@ -1,5 +1,4 @@
 name: Hexo Deploy
-
 on:
   push:
     branches:
@@ -33,14 +32,20 @@ jobs:
         git config --global user.name "Yoichi-Sato482"
         git config --global user.email "yoichisato2022@outlook.com"
 
-        # 使用 Personal Access Token 进行推送
-        git clone --branch=main https://github.com/Yoichi-Sato482/yoichi-sato482.github.io.git .deploy_git
+        # 配置 SSH 密钥
+        mkdir -p ~/.ssh
+        echo "$HEXO_DEPLOY_KEY" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+
+        # 添加 GitHub 的主机到 known_hosts 文件
+        echo "$HEXO_DEPLOY_PUB" >> ~/.ssh/known_hosts
+
+        # 克隆并推送到 main 分支
+        git clone git@github.com:Yoichi-Sato482/yoichi-sato482.github.io.git .deploy_git
         cp -r public/* .deploy_git
         cd .deploy_git
-
-        # 设置 Git 用户身份验证，使用 Personal Access Token
-        git config user.password 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
 
         git add -A
         git commit -m "Deployed by GitHub Actions"
         git push origin main
+
