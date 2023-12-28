@@ -30,8 +30,8 @@ jobs:
 
     - name: Deploy to GitHub Pages
       run: |
-        git config --global user.name Yoichi-Sato482
-        git config --global user.email yoichisato2022@outlook.com
+        git config --global user.name "Yoichi-Sato482"
+        git config --global user.email "yoichisato2022@outlook.com"
 
         # 使用 Personal Access Token 进行推送
         git clone --branch=main https://github.com/Yoichi-Sato482/yoichi-sato482.github.io.git .deploy_git
