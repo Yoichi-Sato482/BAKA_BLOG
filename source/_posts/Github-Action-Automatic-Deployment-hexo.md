@@ -8,6 +8,7 @@ description: 如何使用Github Action自動部署Hexo
 catagories: 
     - 日常
     - 折騰
+headimg: https://picss.sunbangyan.cn/2023/12/28/6215dd676977a38de5b177d9aed3f306.jpeg
 toc: true
 ---
 
