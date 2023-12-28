@@ -11,6 +11,12 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
+      
+    - name: Update Git
+      run: sudo apt-get update && sudo apt-get install -y git
+      
+    - name: Install libcrypto
+      run: sudo apt-get install -y libssl-dev
 
     - name: Setup Node.js
       uses: actions/setup-node@v3
@@ -31,6 +37,13 @@ jobs:
       run: |
         git config --global user.name "Yoichi-Sato482"
         git config --global user.email "yoichisato2022@outlook.com"
+    - name: Set up SSH
+      run: |
+        mkdir -p ~/.ssh
+        echo "$HEXO_DEPLOY_KEY" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan github.com >> ~/.ssh/known_hosts
+        ssh -vT git@github.com
 
         # 配置 SSH 密钥
         mkdir -p ~/.ssh
