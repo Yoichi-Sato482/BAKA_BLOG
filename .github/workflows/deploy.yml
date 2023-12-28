@@ -1,36 +1,31 @@
-name: Hexo Deploy
-
+name: Deploy Hexo
 on:
   push:
     branches:
-      - master
-
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.event.repository.owner.id == github.event.sender.id
-
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Setup Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
-          node-version: '12'
-
-      - name: Setup Hexo
-        env:
-          ACTION_DEPLOY_KEY: ${{ secrets.HEXO_DEPLOY_KEY }}
-        run: |
-          mkdir -p ~/.ssh/
-          echo "$ACTION_DEPLOY_KEY" > ~/.ssh/id_rsa
-          chmod 700 ~/.ssh
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-          git config --global user.email "yoichisato2022@outlook.com"
-          git config --global user.name "Yoichi-Sato482"
-          npm install hexo-cli -g
-          npm install
-
+          node-version: '14'
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Install Dependencies
+        run: npm ci
+      - name: Build
+        run: npx hexo generate
       - name: Deploy
-        run: |
-          hexo clean
-          hexo deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: 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
+          publish_dir: ./public
