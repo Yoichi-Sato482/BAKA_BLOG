@@ -1,36 +1,40 @@
-name: Deploy Hexo
+name: Hexo Deploy
+
 on:
   push:
     branches:
-      - main
+      - main  # 根据你的主分支名称调整这里
+
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-      
-      - name: Cache dependencies
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-      
-      - name: Install Dependencies
-        run: npm ci
-      
-      - name: Build
-        run: npx hexo generate
-      
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: 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
-          publish_dir: ./public
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'  # 根据你的项目需要的 Node.js 版本调整这里
+
+    - name: Install Dependencies
+      run: |
+        npm install
+
+    - name: Hexo Clean and Generate
+      run: |
+        npx hexo clean
+        npx hexo generate
+
+    - name: Deploy to GitHub Pages
+      run: |
+        git config --global user.name 'Yoichi-Sato482'
+        git config --global user.email 'yoichisato2022@outlook.com'
+        git clone --branch=gh-pages https://github.com/Yoichi-Sato482/yoichi-sato482.github.io.git .deploy_git
+        cp -r public/* .deploy_git
+        cd .deploy_git
+        git add -A
+        git commit -m "Deployed by GitHub Actions"
+        git push origin main  # 根据你的仓库设置调整分支名
+
