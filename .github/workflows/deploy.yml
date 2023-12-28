@@ -3,7 +3,7 @@ name: Hexo Deploy
 on:
   push:
     branches:
-      - main  # 根据你的主分支名称调整这里
+      - main
 
 jobs:
   deploy:
@@ -32,18 +32,15 @@ jobs:
       run: |
         git config --global user.name 'Yoichi-Sato482'
         git config --global user.email 'yoichisato2022@outlook.com'
-        
-        # 使用 Secrets 中的 ACCESS_TOKEN
+
+        # 使用 Personal Access Token 进行推送
         git clone --branch=main https://github.com/Yoichi-Sato482/yoichi-sato482.github.io.git .deploy_git
         cp -r public/* .deploy_git
         cd .deploy_git
 
-        # 设置 Git 用户身份验证，使用 Secrets.ACCESS_TOKEN
+        # 设置 Git 用户身份验证，使用 Personal Access Token
         git config user.password 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
-        
+
         git add -A
         git commit -m "Deployed by GitHub Actions"
-        
-        # 使用 Secrets 中的 ACCESS_TOKEN 推送到 gh-pages 分支
-        git push https://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@github.com/Yoichi-Sato482/yoichi-sato482.github.io.git main
-
+        git push origin main
