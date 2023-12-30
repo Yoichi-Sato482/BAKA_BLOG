@@ -1,10 +1,10 @@
 ---
-title: 使用Github Action自動部署Hexo
+title: 一键掌控！GitHub Actions让你的Hexo博客部署狂拽酷炫炸天！
 date: 2023-12-28 17:24:00
 tags:
     - 折騰
     - Hexo
-description: 一键掌控！GitHub Actions让你的Hexo博客部署狂拽酷炫炸天！
+description: 一键部署，让你的Hexo博客翱翔云端！本文将介绍如何利用GitHub Actions实现博客文章自动部署，轻松迈入智能化博客搭建的新境界！🔥🔥🔥掌握这项实用技巧，让您的博客飞上天！快来探索这个充满智能与创新的博客搭建世界吧！🚀🚀🚀
 catagories: 
     - 日常
     - 折騰
