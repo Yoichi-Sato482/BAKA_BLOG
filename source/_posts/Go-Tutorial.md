@@ -1,11 +1,12 @@
 ---
 title: GoLang教程
-date: 2023-03-31 20:07:28
-categories: 
-- 筆記
+categories:
+  - 筆記
 tags:
-- GoLang
-- 教學
+  - GoLang
+  - 教學
+abbrlink: 11461c78
+date: 2023-03-31 20:07:28
 ---
 # Go学习笔记    
 ## 流程控制

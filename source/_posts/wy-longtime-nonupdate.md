@@ -1,13 +1,14 @@
 ---
 title: 关于咱为什么这么长时间没有更新
-date: 2023-03-16 22:00:15
 tags:
-- 更新
+  - 更新
 categories:
-- 日常
+  - 日常
 description: 一些很繁琐的事情
 toc: false
 headimg: /imgs/posts/wynotupdate.png
+abbrlink: 60d977f8
+date: 2023-03-16 22:00:15
 ---
 
 # 更新内容

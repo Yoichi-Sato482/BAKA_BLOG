@@ -1,13 +1,14 @@
 ---
 title: Rimworld遊戲基礎不完全指北
-date: 2022-11-08 15:13:25
-tags: 
-- RimWorld
-- 教程
+tags:
+  - RimWorld
+  - 教程
 description: RimWorld根據自己經驗寫出來的一個教程，包含了遊戲的前期和基礎玩法。
 categories:
-- 教程
+  - 教程
 headimg: /imgs/posts/template.png
+abbrlink: c49b6c29
+date: 2022-11-08 15:13:25
 ---
 
 # RimWorld 不完全基礎指北

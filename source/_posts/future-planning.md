@@ -1,14 +1,15 @@
 ---
 title: 落落格未來規劃
-date: 2022-11-14 13:04:42
 tags:
-- 規劃
-- 唬爛
+  - 規劃
+  - 唬爛
 description: 落落格會寫什麼或者以後會有什麼
-catagories: 
-- 日常
+catagories:
+  - 日常
 headimg: /imgs/posts/lologu.png
 toc: false
+abbrlink: 3d819c7
+date: 2022-11-14 13:04:42
 ---
 
 ## 其實談什麼未來規劃根本就沒有什麼規劃

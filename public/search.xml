@@ -1,8 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>一键掌控！GitHub Actions让你的Hexo博客部署狂拽酷炫炸天！</title>
+    <url>/posts/85853359.html</url>
+    <content><![CDATA[<h1 id="废话"><a class="markdownIt-Anchor" href="#废话"></a> 废话</h1>
+<p>在当今科技飞速发展的时代，博客部署已经迈入智能化时代。作为一名热爱技术的博主，我一直在寻求将最新科技融入博客搭建的过程。随着AI技术的日益成熟，我相信智能化的博客部署将成为未来发展的大趋势。</p>
+<p>GitHub Actions的出现，让我看到了博客部署自动化的希望。它不仅可以智能执行部署任务，还能与作者共同完成最后的代码编写。在这篇文章中，我将向大家展示如何利用GitHub Actions和AI技术，实现Hexo博客的一键自动部署，让你的博客飞上天！🔥🔥🔥</p>
+<p>准备好了吗？那就让我们一起开启这场智能化的博客部署之旅吧！🤖🤖🤖</p>
+<h1 id="注意事項重要"><a class="markdownIt-Anchor" href="#注意事項重要"></a> 注意事項（重要）</h1>
+<div class="note warning"><p>請務必按照本文所示的方法進行操作，所有操作方法適用於最新Github網頁端</p></div>
+<ul>
+<li>文中的部分內容請根據自己的實際情況進行替換，文章中的Workflow僅供參考</li>
+<li>在進行自動部署之前，請確認你的 <span class='p red'>`Hexo 源文件儲存庫`</span> (並非<code>hexo d</code>之後的倉庫)已經上傳，如果未上傳請參考:「準備工作」一節</li>
+<li>文中已放棄使用Tokens (classic)的`Github Personal access token</li>
+<li>文章所使用的環境爲Linux，與Windows Mac OS等大同小異</li>
+</ul>
+<h1 id="準備工作"><a class="markdownIt-Anchor" href="#準備工作"></a> 準備工作</h1>
+<p>在使用自動部署前的準備，請確定以下步驟已完成</p>
+<h2 id="上傳blog博客源文件"><a class="markdownIt-Anchor" href="#上傳blog博客源文件"></a> 上傳Blog（博客）源文件</h2>
+<div class="note info"><p>建議複製一份源文件在複製的文件夾內操作上傳以確保不會出現 <s>毀滅性</s> 問題</p></div>
+<h3 id="新建倉庫"><a class="markdownIt-Anchor" href="#新建倉庫"></a> 新建倉庫</h3>
+<p>複製倉庫的Git地址（並非以github.io結尾的倉庫名稱）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://github.com/&#123;&#123;UserName&#125;&#125;/&#123;&#123;repository&#125;&#125;.git</span><br><span class="line"><span class="comment"># 請替換鏈接中的&#123;&#123;userName&#125;&#125;和&#123;&#123;repository&#125;&#125;爲自己的實際地址</span></span><br></pre></td></tr></table></figure>
+<h3 id="倉庫關聯"><a class="markdownIt-Anchor" href="#倉庫關聯"></a> 倉庫關聯</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add origin https://github.com/&#123;&#123;UserName&#125;&#125;/&#123;&#123;repository&#125;&#125;.git</span><br></pre></td></tr></table></figure>
+<h3 id="推送源碼"><a class="markdownIt-Anchor" href="#推送源碼"></a> 推送源碼</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&#x27;在此處描述更新&#x27;</span></span><br><span class="line">git push origin main</span><br></pre></td></tr></table></figure>
+<p>如果出現下面的錯誤，可以使用 <code>git push origin +main</code> 強制上傳</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">! [rejected]        main -&gt; main (fetch first)</span><br><span class="line">錯誤: 推送一些引用到 <span class="string">&#x27;https://github.com/Yoichi-Sato482/BAKA_BLOG.git&#x27;</span> 失敗</span><br><span class="line">提示：更新被拒絕，因為遠端包含您本機沒有的提交。這通常是因為</span><br><span class="line">提示：另一個版本庫有推送更動到同個引用。如果您想要整合遠端更動，</span><br><span class="line">提示：請在再次推送前使用 “git pull”。詳見 “git push --<span class="built_in">help</span>” 中的</span><br><span class="line">提示：〈Note about fast-forwards〉小節。</span><br></pre></td></tr></table></figure>
+<h3 id="用戶驗證"><a class="markdownIt-Anchor" href="#用戶驗證"></a> 用戶驗證</h3>
+<p>根據Github官方的消息，目前Github驗證已經放棄使用用戶名和明文密碼進行驗證，需要自己申請Token進行登錄驗證，可參考<code>「申請用戶訪問密鑰（personal-access-token）」</code>一節的步驟進行申請。如果使用用戶名和密碼會出現下面的錯誤：</p>
+<blockquote>
+<p>remote: Support for password authentication was removed on August 13, 2021.<br />
+remote: Please see <a href="https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls">https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls</a> for information on currently recommended modes of authentication.</p>
+</blockquote>
+<h2 id="確定hexo能夠正常運行"><a class="markdownIt-Anchor" href="#確定hexo能夠正常運行"></a> 確定Hexo能夠正常運行</h2>
+<p>首先確保Hexo能夠正常運行不會因爲Hexo的原因造成Github Action 自動部署時無法正常運作。<br />
+進入到Hexo的 <code>Blog源文件目錄</code> ，文件結構如下圖</p>
+<div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="/imgs/posts/Github-Action-automatic/files.png" class="lazyload" data-srcset="/imgs/posts/Github-Action-automatic/files.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Blog文件目錄結構"/></div><span class="image-caption">Blog文件目錄結構</span></div>  
+<p>在此處打開終端並輸入下面的命令清空 <code>public</code> 目錄並重新生成文件啓動本地服務器以測試Hexo是否正常運行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<h2 id="申請用戶訪問密鑰personal-access-token"><a class="markdownIt-Anchor" href="#申請用戶訪問密鑰personal-access-token"></a> 申請用戶訪問密鑰（personal-access-token）</h2>
+<ol>
+<li>首先在Github首頁點擊右上角你的用戶頭像，下拉選取 <code>Settings</code> 選項進入到用戶設置</li>
+</ol>
+<div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="/imgs/posts/Github-Action-automatic/Settings.png" class="lazyload" data-srcset="/imgs/posts/Github-Action-automatic/Settings.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="用戶設置的位置"/></div><span class="image-caption">用戶設置的位置</span></div>  
+<ol start="2">
+<li>進入到 <code>Settings</code> 內選擇左側最下方的 <code>&lt; &gt; Developer settings</code></li>
+<li>在新的頁面內，找到最下方的 <code>🔑 Personal access tokens</code> 展開選擇 <emp>Fine-grained tokens</emp> 一定注意不要選擇 Tokens，使用Tokens大概率變爲一次性使用所以建議申請 <emp>Fine-grained tokens</emp></li>
+</ol>
+<span class='btn center large'><a class="button" href='https://github.com/settings/tokens?type=beta' title='直達鏈接'><i class='fas'></i>直達鏈接</a></span>  
+<ol start="4">
+<li>選擇右上角 <code>Generate new token</code> 按鈕進入到創建Token頁面，按照圖示設置即可</li>
+</ol>
+<div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="/imgs/posts/Github-Action-automatic/Create.png" class="lazyload" data-srcset="/imgs/posts/Github-Action-automatic/Create.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="創建新的Token"/></div><span class="image-caption">創建新的Token</span></div> 
+<ol start="5">
+<li>滑到下方，在 <code>Permissions</code> 這部分設置相關的權限，如果你不知道具體的權限可以將所有的權限設置爲 <emp>Read and write</emp>.<br />
+<code>Account permissions</code> 可以不用設置</li>
+<li>在設置完成之後，點擊 <code>Generate token</code> 生成Token<div class="note warning"><p>注意！Token只會顯示一次，請妥善複製和保存到一個固定的地方，方便日後再次使用</p></div> <div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="/imgs/posts/Github-Action-automatic/Token.png" class="lazyload" data-srcset="/imgs/posts/Github-Action-automatic/Token.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="生成的Token"/></div><span class="image-caption">生成的Token</span></div></li>
+</ol>
+<h2 id="創建-repository-secrets"><a class="markdownIt-Anchor" href="#創建-repository-secrets"></a> 創建 Repository secrets</h2>
+<ol>
+<li>打開你創建的<emp>Blog源文件倉庫</emp>選擇<emp>倉庫上方的Settings選項</emp>打開倉庫設置</li>
+</ol>
+<div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="/imgs/posts/Github-Action-automatic/Resp.png" class="lazyload" data-srcset="/imgs/posts/Github-Action-automatic/Resp.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Actions secrets and variables"/></div><span class="image-caption">Actions secrets and variables</span></div> 
+<ol start="3">
+<li>在下方的 <code>Repository secrets</code> 點擊右邊的 <code>New repository secret</code> 創建新的Secrets</li>
+</ol>
+<div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="/imgs/posts/Github-Action-automatic/Newsecret.png" class="lazyload" data-srcset="/imgs/posts/Github-Action-automatic/Newsecret.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="創建 Secret"/></div><span class="image-caption">創建 Secret</span></div>  
+<p>Name可以隨意但建議使用全大寫英文字母進行命名，在下方的<code>Secret*</code>填寫剛剛申請的<emp>申請用戶訪問密鑰</emp>並點擊 <code>Add secret</code><br />
+4. 返回到倉庫的<code>Actions</code>選項內，點擊上方的藍色字體 <code>set up a workflow yourself -&gt;</code> 創建Actions<div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="/imgs/posts/Github-Action-automatic/Actions.png" class="lazyload" data-srcset="/imgs/posts/Github-Action-automatic/Actions.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="創建Actions"/></div><span class="image-caption">創建Actions</span></div><br />
+5. 在下方編輯框粘貼代碼，並將其中的 <code>user.name</code> <code>user.email</code> <code>TOKEN_NAME</code> 替換爲自己所設置的地址和信息</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Hexo</span> <span class="string">Deploy</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">main</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">deploy:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Checkout</span> <span class="string">Repository</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line"></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Setup</span> <span class="string">Node.js</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">actions/setup-node@v2</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">node-version:</span> <span class="string">&#x27;20&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">Dependencies</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">        npm install</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Hexo</span> <span class="string">Clean</span> <span class="string">and</span> <span class="string">Generate</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">        npx hexo clean</span></span><br><span class="line"><span class="string">        npx hexo generate</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Deploy</span> <span class="string">to</span> <span class="string">GitHub</span> <span class="string">Pages</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">        git config --global user.name &#x27;GithubAction&#x27;</span></span><br><span class="line"><span class="string">        git config --global user.email &#x27;action@github.com&#x27;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">        <span class="comment"># 使用 Personal Access Token 进行推送</span></span><br><span class="line">        <span class="string">git</span> <span class="string">clone</span> <span class="string">https://$&#123;&#123;</span> <span class="string">secrets.TOKEN_NAME</span> <span class="string">&#125;&#125;@https://github.com/&#123;&#123;UserName&#125;&#125;/&#123;&#123;repository&#125;&#125;.git</span> <span class="string">.deploy_git</span></span><br><span class="line">        <span class="string">cp</span> <span class="string">-r</span> <span class="string">public/*</span> <span class="string">.deploy_git</span></span><br><span class="line">        <span class="string">cd</span> <span class="string">.deploy_git</span></span><br><span class="line"></span><br><span class="line">        <span class="string">git</span> <span class="string">add</span> <span class="string">-A</span></span><br><span class="line">        <span class="string">git</span> <span class="string">commit</span> <span class="string">-m</span> <span class="string">&quot;Deployed by GitHub Actions&quot;</span></span><br><span class="line">        <span class="string">git</span> <span class="string">push</span> <span class="string">origin</span> <span class="string">main</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>點擊 <code>Commit changes...</code> 提交修改並等待Action自動執行</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>折騰</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>GoLang教程</title>
-    <url>/Go-Tutorial/</url>
+    <url>/posts/11461c78.html</url>
     <content><![CDATA[<h1 id="go学习笔记"><a class="markdownIt-Anchor" href="#go学习笔记"></a> Go学习笔记</h1>
 <h2 id="流程控制"><a class="markdownIt-Anchor" href="#流程控制"></a> 流程控制</h2>
 <p>流程控制语句时用来控制程序中的各语句执行顺序的语句，可与其他语句组成一定功能的小逻辑模块</p>
@@ -285,7 +366,7 @@ c: 0xc00000e480	[1 2 3 4 5]</p>
   </entry>
   <entry>
     <title>如何提升你的OSU!Mania底力 [持續更新...]</title>
-    <url>/HowToUpgradeYourOSUmaniaAbility/</url>
+    <url>/posts/a692a90c.html</url>
     <content><![CDATA[<div class="note warning"><p>警告！本文章僅從個人經驗角度出發，具體需要考慮到個人的地力水平和承受能力，請不要完全依賴文章所講的內容練習，僅供參考。如果有出現錯誤或者需要修改內容歡迎在評論區留言。</p></div>
 <p><strong>同時，封面圖片僅供參考實際情況因人而異。</strong></p>
 <h1 id="part0-適合閱讀文章的人群"><a class="markdownIt-Anchor" href="#part0-適合閱讀文章的人群"></a> Part.0 適合閱讀文章的人群</h1>
@@ -307,8 +388,18 @@ c: 0xc00000e480	[1 2 3 4 5]</p>
       </tags>
   </entry>
   <entry>
+    <title>我放弃使用 HEXO 转型使用 HUGO</title>
+    <url>/posts/2be269df.html</url>
+    <content><![CDATA[<h1 id="对就这样我不想折腾hexo了我要开始折腾hugo了到现在才发现hugo才更适合懒人"><a class="markdownIt-Anchor" href="#对就这样我不想折腾hexo了我要开始折腾hugo了到现在才发现hugo才更适合懒人"></a> 对，就这样，我不想折腾HEXO了，我要开始折腾HUGO了，到现在才发现，HUGO才更适合懒人</h1>
+]]></content>
+      <tags>
+        <tag>杂谈</tag>
+        <tag>日常</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Talk-Update</title>
-    <url>/Talk-Update/</url>
+    <url>/posts/2a3277e8.html</url>
     <content><![CDATA[<h1 id="寫這篇文章就是想要講"><a class="markdownIt-Anchor" href="#寫這篇文章就是想要講"></a> 寫這篇文章就是想要講</h1>
 <h2 id="disqus已經完全拋棄了因爲某些我不知道的原因disqus被startpage的插件攔截"><a class="markdownIt-Anchor" href="#disqus已經完全拋棄了因爲某些我不知道的原因disqus被startpage的插件攔截"></a> Disqus已經完全拋棄了！因爲某些我不知道的原因Disqus被Startpage的插件攔截</h2>
 <h2 id="所以我換成了更方便一點的gitalk之後可能連旁邊的那個也給換掉"><a class="markdownIt-Anchor" href="#所以我換成了更方便一點的gitalk之後可能連旁邊的那個也給換掉"></a> 所以我換成了更方便一點的Gitalk，之後可能連旁邊的那個也給換掉</h2>
@@ -327,7 +418,7 @@ c: 0xc00000e480	[1 2 3 4 5]</p>
   </entry>
   <entry>
     <title>2022喵喵落落格的年終總結耶！</title>
-    <url>/The-End-of-2022/</url>
+    <url>/posts/d0e7c4ba.html</url>
     <content><![CDATA[<h1 id="要新年了"><a class="markdownIt-Anchor" href="#要新年了"></a> 要新年了</h1>
 <p>首先嘛，新年祝一直支持訪問以及關注落落格的貓貓們新年都有很多很多貓娘喫~也能成功度過這次的肺炎病毒的襲擊成爲超級健康貓貓。</p>
 <h1 id="落落格今年發生的事情"><a class="markdownIt-Anchor" href="#落落格今年發生的事情"></a> 落落格今年發生的事情</h1>
@@ -358,7 +449,7 @@ c: 0xc00000e480	[1 2 3 4 5]</p>
   </entry>
   <entry>
     <title>落落格的第一篇文章</title>
-    <url>/TheFirstPosts/</url>
+    <url>/posts/ebd15b03.html</url>
     <content><![CDATA[<h1 id="唬爛不知道多少次寫文了"><a class="markdownIt-Anchor" href="#唬爛不知道多少次寫文了"></a> 唬爛！不知道多少次寫文了</h1>
 <p>好久沒有寫文了，記得上次寫文還是在昨天<br />
 但是！<s>速度與激情9</s> 還是不知道些什麼…<br />
@@ -381,14 +472,14 @@ c: 0xc00000e480	[1 2 3 4 5]</p>
         <category>日常</category>
       </categories>
       <tags>
-        <tag>唬爛</tag>
         <tag>Hexo</tag>
+        <tag>唬爛</tag>
         <tag>落落格文章</tag>
       </tags>
   </entry>
   <entry>
     <title>2023年&quot;縱&quot; 總結</title>
-    <url>/Year-end-Summary/</url>
+    <url>/posts/4ecc1041.html</url>
     <content><![CDATA[<h2 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> <strong>前言</strong></h2>
 <p>2023年，是我開始 Blog 創作生涯的第二年，雖然沒有把這個當作一項本職工作，但回顧過去的一年，我取得了一些成績，也遇到了一些挑戰。總體而言，我對自己的表現感到滿意，但也意識到還有很多需要改進的地方。</p>
 <h2 id="回顧過去那些破爛喵喵事"><a class="markdownIt-Anchor" href="#回顧過去那些破爛喵喵事"></a> <strong>回顧過去那些破爛喵喵事</strong></h2>
@@ -478,8 +569,19 @@ c: 0xc00000e480	[1 2 3 4 5]</p>
       </tags>
   </entry>
   <entry>
+    <title>復活啦！！</title>
+    <url>/posts/85b589c9.html</url>
+    <content><![CDATA[<span class='p cyan center large'>恭喜我的blog復活!</span>
+<p>額…然後是</p>
+<span class='p red center large'>我的Blog友鏈需要大返修，不存在而且聯繫不上的友鏈將會被刪除</span>
+]]></content>
+      <tags>
+        <tag>日常</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>加密測試文章</title>
-    <url>/encryptpost/</url>
+    <url>/posts/165f9e45.html</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
   <script id="hbeData" type="hbeData" data-hmacdigest="386530f8ab3946488e0f5d65db539c28c17f1932b518c3ec3bb6a27b3e06fcdc">0260f6355ba0936d04ec4f22e627c52e77f18f08becbbc1a74578357d495596e</script>
   <div class="hbe hbe-content">
@@ -499,7 +601,7 @@ c: 0xc00000e480	[1 2 3 4 5]</p>
   </entry>
   <entry>
     <title>落落格未來規劃</title>
-    <url>/future-planning/</url>
+    <url>/posts/3d819c7.html</url>
     <content><![CDATA[<h2 id="其實談什麼未來規劃根本就沒有什麼規劃"><a class="markdownIt-Anchor" href="#其實談什麼未來規劃根本就沒有什麼規劃"></a> 其實談什麼未來規劃根本就沒有什麼規劃</h2>
 <p>每次想到一個想法都會開始 <s>頭腦風暴</s> 到底這個文章適不適合發到落落格上面，會不會造成一些什麼不太好的或者說…會不會踩到一部分人的地雷…非常糾結…</p>
 <h2 id="有時候是真的不想把一些不太好的東西po上來"><a class="markdownIt-Anchor" href="#有時候是真的不想把一些不太好的東西po上來"></a> 有時候是真的不想把一些不太好的東西po上來</h2>
@@ -514,19 +616,8 @@ c: 0xc00000e480	[1 2 3 4 5]</p>
       </tags>
   </entry>
   <entry>
-    <title>復活啦！！</title>
-    <url>/newUpdate/</url>
-    <content><![CDATA[<span class='p cyan center large'>恭喜我的blog復活!</span>
-<p>額…然後是</p>
-<span class='p red center large'>我的Blog友鏈需要大返修，不存在而且聯繫不上的友鏈將會被刪除</span>
-]]></content>
-      <tags>
-        <tag>日常</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Rimworld遊戲基礎不完全指北</title>
-    <url>/rimworld-tutorial/</url>
+    <url>/posts/c49b6c29.html</url>
     <content><![CDATA[<h1 id="rimworld-不完全基礎指北"><a class="markdownIt-Anchor" href="#rimworld-不完全基礎指北"></a> RimWorld 不完全基礎指北</h1>
 <h2 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h2>
 <p>首先，對於 <code>RimWorld</code> 網路上面有很多教程包括巴哈什麽的，本篇教程僅僅是自己根據游玩的經驗和藉鑒相關的教程總結出來的，所以，對剛接觸 <code>RimWorld</code> 的這款游戲的玩家比較友好。</p>
@@ -785,7 +876,7 @@ c: 0xc00000e480	[1 2 3 4 5]</p>
   </entry>
   <entry>
     <title>关于咱为什么这么长时间没有更新</title>
-    <url>/wy-longtime-nonupdate/</url>
+    <url>/posts/60d977f8.html</url>
     <content><![CDATA[<h1 id="更新内容"><a class="markdownIt-Anchor" href="#更新内容"></a> 更新内容</h1>
 <p>先说一下咱消失的这段时间都更新了什么<br />
 最大的更新就是将主题从头到尾全部更换了，也不在沉迷于魔改，平平淡淡才是真<br />

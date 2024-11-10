@@ -1,12 +1,13 @@
 ---
 title: Talk-Update
-date: 2023-01-09 11:42:36
-tags: 
-- 唬爛
-- 水
+tags:
+  - 唬爛
+  - 水
 categories:
-- 小型更新
+  - 小型更新
 headimg: /imgs/posts/upgrade.webp
+abbrlink: 2a3277e8
+date: 2023-01-09 11:42:36
 ---
 
 # 寫這篇文章就是想要講

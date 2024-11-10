@@ -1,13 +1,14 @@
 ---
-title: 如何提升你的OSU!Mania底力 [持續更新...]
-date: 2022-12-04 15:08:13
+title: '如何提升你的OSU!Mania底力 [持續更新...]'
 tags:
-- OSU
-- HowTo
+  - OSU
+  - HowTo
 description: 讓你走最少的彎路提升你的Mania實力
-categories: 
-- 技術提升
+categories:
+  - 技術提升
 headimg: /imgs/posts/osu.png
+abbrlink: a692a90c
+date: 2022-12-04 15:08:13
 ---
 
 {% note warning::警告！本文章僅從個人經驗角度出發，具體需要考慮到個人的地力水平和承受能力，請不要完全依賴文章所講的內容練習，僅供參考。如果有出現錯誤或者需要修改內容歡迎在評論區留言。 %}

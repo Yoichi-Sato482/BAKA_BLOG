@@ -1,14 +1,15 @@
 ---
 title: 落落格的第一篇文章
-date: 2022-10-30 21:24:21
-tags: 
-    - 唬爛
-    - Hexo
-    - 落落格文章
-categories: 
-    - 日常
+tags:
+  - 唬爛
+  - Hexo
+  - 落落格文章
+categories:
+  - 日常
 description: 不知道第幾次折騰Github Pages然後不知道第幾次把Blog弄好
 headimg: /imgs/posts/fpst.png
+abbrlink: ebd15b03
+date: 2022-10-30 21:24:21
 ---
 
 # 唬爛！不知道多少次寫文了

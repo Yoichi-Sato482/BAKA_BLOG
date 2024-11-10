@@ -1,10 +1,11 @@
 ---
 title: 復活啦！！
-date: 2023-11-17 17:34:32
 tags:
-- 日常
+  - 日常
 description: 網站復活啦！！
 headimg: /imgs/posts/good-news.png
+abbrlink: 85b589c9
+date: 2023-11-17 17:34:32
 ---
 
 {% span cyan center large::恭喜我的blog復活! %}
