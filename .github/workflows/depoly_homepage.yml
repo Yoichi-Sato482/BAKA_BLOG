@@ -1,43 +1,45 @@
-name: Deploy Vue Homepage
+name: Hexo Deploy
 
 on:
   push:
     branches:
-      - homepage-src  # 用于保存Vue源码的分支
+      - main  # 当 main 分支有更新时触发
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '20'
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
 
-    - name: Install Dependencies
-      run: npm install
+      - name: Install Dependencies
+        run: |
+          npm install
 
-    - name: Build Vue Project
-      run: npm run build  # 根据 Vue 项目配置情况，使用对应的构建命令
+      - name: Hexo Clean and Generate
+        run: |
+          npx hexo clean
+          npx hexo generate
 
-    - name: Deploy to GitHub Pages
-      env:
-        GH_TOKEN: ${{ secrets.GH_TOKEN }}
-      run: |
-        git config --global user.name 'Yoichi-Sato482'
-        git config --global user.email 'yoichisato2022@outlook.com'
+      - name: Deploy to Homepage branch in /blog
+        run: |
+          git config --global user.name 'Yoichi-Sato482'
+          git config --global user.email 'yoichisato2022@outlook.com'
 
-        # 将构建后的文件复制到一个新的临时目录用于部署
-        git clone https://${{ secrets.GH_TOKEN }}@github.com/Yoichi-Sato482/yoichi-sato482.github.io.git .deploy_homepage
-        rm -rf .deploy_homepage/*
-        cp -r dist/* .deploy_homepage  # 将生成的 dist 文件夹内容复制到部署目录
+          # 克隆 homepage 分支
+          git clone -b homepage https://${{ secrets.GH_TOKEN }}@github.com/Yoichi-Sato482/yoichi-sato482.github.io.git .deploy_homepage
 
-        cd .deploy_homepage
-        git checkout -B homepage  # 切换到 homepage 分支
-        git add -A
-        git commit -m "Deploy Vue homepage by GitHub Actions"
-        git push -f origin homepage  # 强制推送到 homepage 分支
+          # 将生成的 Hexo 静态文件复制到 /blog 目录
+          mkdir -p .deploy_homepage/blog
+          cp -r public/* .deploy_homepage/blog
+          cd .deploy_homepage
+
+          # 提交更改到 homepage 分支
+          git add -A
+          git commit -m "Deployed Hexo blog to /blog by GitHub Actions"
+          git push origin homepage
