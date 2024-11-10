@@ -1,0 +1,43 @@
+name: Deploy Vue Homepage
+
+on:
+  push:
+    branches:
+      - homepage-src  # 用于保存Vue源码的分支
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20'
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Build Vue Project
+      run: npm run build  # 根据 Vue 项目配置情况，使用对应的构建命令
+
+    - name: Deploy to GitHub Pages
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      run: |
+        git config --global user.name 'Yoichi-Sato482'
+        git config --global user.email 'yoichisato2022@outlook.com'
+
+        # 将构建后的文件复制到一个新的临时目录用于部署
+        git clone https://${{ secrets.GH_TOKEN }}@github.com/Yoichi-Sato482/yoichi-sato482.github.io.git .deploy_homepage
+        rm -rf .deploy_homepage/*
+        cp -r dist/* .deploy_homepage  # 将生成的 dist 文件夹内容复制到部署目录
+
+        cd .deploy_homepage
+        git checkout -B homepage  # 切换到 homepage 分支
+        git add -A
+        git commit -m "Deploy Vue homepage by GitHub Actions"
+        git push -f origin homepage  # 强制推送到 homepage 分支
