@@ -6,7 +6,7 @@ favicon: '/imgs/avatar/yuyuko.png'
 author: Yoichi
 language: zh-TW
 timezone: UTC
-url: https://blog.bakalu.site
+url: https://yoichi-sato482.github.io
 # permalink: ':title/'
 permalink: posts/:abbrlink.html  ## 此处可以自己设置
 permalink_defaults: null
@@ -98,8 +98,8 @@ feed:
 deploy:
   type: git
   repository: 
-    github: https://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@github.com/Yoichi-Sato482/yoichi-sato482.github.io.git,main
+    github: https://github.com/Yoichi-Sato482/BAKA_BLOG.git,main
 # layout文件替换
 theme_plus:
   custom_path: source/_layout
-root: /blog/
+root: /
