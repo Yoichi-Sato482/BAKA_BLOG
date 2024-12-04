@@ -136,6 +136,9 @@ navbar:
     icon: imgs/avatar/yuyuko.png
     title: 🐱 Moeri落落格
   menu:
+    - name: 茵蒂克丝
+      icon: fa-solid fa-cat
+      url: https://shika-mori.top/
     - name: 博客
       icon: fa-solid fa-rss
       url: /
@@ -173,9 +176,14 @@ cover:
   subtitle: '这是属于Yumori的一个小窝'
   search:  # search bar placeholder
   features:
-    - name: 主頁
+    - name: 茵蒂克丝
       icon: #
-      img: https://img.icons8.com/fluency/48/null/home-page.png # https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f5c3.svg
+      img: https://img.icons8.com/fluency/48/null/home-page.png
+      url: https://shika-mori.top/
+
+    - name: 部落格
+      icon: #
+      img:  https://img.icons8.com/color/48/overview-pages-4.png # https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f5c3.svg
       url: /
 
     - name: 分類
